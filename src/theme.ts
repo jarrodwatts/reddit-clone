@@ -68,8 +68,6 @@ const theme = createMuiTheme({
     body1: {
       fontSize: "1rem",
       lineHeight: 1.75,
-      marginTop: "1.25em",
-      marginBottom: "1.25em",
       color: "#d1d5db",
     },
     body2: {

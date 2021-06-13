@@ -1,1 +1,41 @@
-{}
+{
+  "auth": {
+    "redditclone972ac593": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "api": {
+    "redditcloneapi": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 364,
+              "description": "Cool API Key"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authredditclone972ac593"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "storage": {
+    "redditcloneimages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
